@@ -14,7 +14,7 @@ Main inputs are a text prompt and an open pose image.
 
 "TOK person sitting"
 
-<img src="https://cloud.githubusercontent.com/assets/yourgif.gif" width="256" height="256" alt="Open Pose Image" />
+<img src="sitting_05.png" width="256" height="256" alt="Open Pose Image" />
 
 ### Output
 
@@ -53,9 +53,11 @@ Install cog locally:
 
 5) Download Weights
 
-CD into the directory and download the model weights (if on Lambda, as in this example, with sudo):
+CD into the directory...
 
     cd sdxl-boardsbot-cog
+
+...and download the model weights (if on Lambda, as in this example, with sudo):
 
     sudo cog run script/downloadweights
 
