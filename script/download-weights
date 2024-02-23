@@ -67,6 +67,11 @@ import os
 import tarfile
 
 # Download the tar file
+#
+# THIS IS THE URL FOR THE TRAINED LoRA ON REPLICATE
+#
+#
+#
 url = 'https://pbxt.replicate.delivery/OB8We6D85u1zVSTjpF4noNfSxDEueIQLE8sfM9NWoAY0pxIGB/trained_model.tar'
 response = requests.get(url)
 with open('trained_model.tar', 'wb') as f:

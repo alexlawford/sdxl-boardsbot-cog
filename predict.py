@@ -182,7 +182,7 @@ class Predictor(BasePredictor):
         
         output = self.pipe(
             **common_args,
-            image=openpose_image,
+            image=image,
             **sdxl_kwargs
         )
 
