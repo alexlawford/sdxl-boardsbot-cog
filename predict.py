@@ -5,7 +5,6 @@ from cog import BasePredictor, Input, Path
 import os
 import torch
 from PIL import Image
-from controlnet_aux import OpenposeDetector
 from diffusers import StableDiffusionXLControlNetPipeline, ControlNetModel, DiffusionPipeline
 from safetensors import safe_open
 from dataset_and_utils import TokenEmbeddingsHandler
@@ -26,10 +25,6 @@ REFINER_CACHE = "refiner-cache"
 class Predictor(BasePredictor):
     def setup(self) -> None:
         """Load the model into memory to make running multiple predictions efficient"""
-        self.openpose = OpenposeDetector.from_pretrained(
-            CONTROL_NAME,
-            cache_dir=CONTROL_CACHE,
-        )
         controlnet = ControlNetModel.from_pretrained(
             POSE_CACHE,
             torch_dtype=torch.float16,
@@ -154,7 +149,6 @@ class Predictor(BasePredictor):
 
         # Load pose image
         image = Image.open(image).resize((1024, 1024))
-        openpose_image = self.openpose(image).resize((1024, 1024))
 
         sdxl_kwargs = {}
         if refine == "expert_ensemble_refiner":
