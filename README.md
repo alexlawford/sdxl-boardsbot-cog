@@ -8,13 +8,15 @@ This is based on [thibaud/controlnet-openpose-sdxl-1.0](https://huggingface.co/t
 
 ## Example:
 
-Inputs:
+Main inputs are a text prompt and an open pose image.
+
+### Inputs:
 
 "TOK person sitting"
 
-![open pose image](sitting_05.png)
+<img src="https://cloud.githubusercontent.com/assets/yourgif.gif" width="256" height="256" alt="Open Pose Image" />
 
-Output
+### Output
 
 (TODO)
 
@@ -29,29 +31,43 @@ To train a LoRa go to [Replicate](https://replicate.com/blog/fine-tune-sdxl).
 
 You'll need to have already created 
 
-1) First, create a model on Replicate by visting [replicate.com/create](https://replicate.com/create) and following the instructions.
+1) Create a Model on Replicate
 
-2) Next, fire up and SSH into a Lambda instance.
+First, create a model on Replicate by visting [replicate.com/create](https://replicate.com/create) and following the instructions.
 
-3) Clone this depository:
+2) Fire Up a Lamda Instance 
+
+Next, fire up and SSH into a Lambda instance (or equivalent)/
+
+3) Clone Depository
+
+Clone this depository:
 
     git clone https://github.com/alexlawford/sdxl-boardsbot-cog.git
 
-4) Install cog:
+4) Install Cog
+
+Install cog locally:
 
     curl https://replicate.github.io/codespaces/scripts/install-cog.sh | bash
 
-5) CD into the directory and download the weights (if on Lambda, as in this example, with sudo):
+5) Download Weights
+
+CD into the directory and download the model weights (if on Lambda, as in this example, with sudo):
 
     cd sdxl-boardsbot-cog
 
     sudo cog run script/downloadweights
 
-6) Log into cog
+6) Log In
+
+Log into Cog, following the instructions that come up:
 
     sudo Cog login
 
-7)  Push the model using "cog push":
+7)  Push Model
+
+Push the model to Replicate using cog push:
 
     cog push r8.im/<your-username>/<your-model-name>
 
